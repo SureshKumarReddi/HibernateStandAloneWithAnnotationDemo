@@ -1,0 +1,36 @@
+HQL (Hibernate Query Language,Query Object) differs from sql
+
+-An object-oriented representation of a Hibernate query. 
+-A Query instance is obtained by calling Session.createQuery().
+
+*** differences *****
+
+
+- Instead of using tableName in HQL we are  using className
+- Instead of using columnName in HQl we are using classPropertyName
+- there is no select * from , in HQl we are starting from className
+
+ eg: Query query = session.createQuery("from Student where id>2");
+ 
+ -Instead of returning records from database ,in HQL we are returning list .
+ 
+ eg:List list = query.list();
+ 
+ 
+ problems with HQL
+ ----------------
+ 
+ - 1.if query is complex difficult to change for existing queries .
+ - use criteria API
+ 
+ 
+ ***************
+ 
+ NamedQueries:(javabrains)
+ 
+ - NamedQueries are used for writing common queries at entity level 
+ and can be accessed where ever we need to call
+ - it actually uses HQL query 
+ - one advantage of Named Queries is it allows write sql quries using 
+ NamedNativeQuery(name = "" , query ="select * from tablename")
+ 
